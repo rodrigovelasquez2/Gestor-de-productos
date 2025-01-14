@@ -6,7 +6,6 @@ import java.time.LocalDate;
  * Aplica encapsulamiento a travez de get and set.
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version
  * @date 4/08/2024
  * @time 19:14
  */

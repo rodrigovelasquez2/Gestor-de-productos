@@ -6,7 +6,6 @@ import java.util.Objects;
  * Clase que representa un ítem en el carro de compras.
  * Contiene un producto y la cantidad de dicho producto en el carro.
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
  * @date 4/08/2024
  * @time 19:17
  */

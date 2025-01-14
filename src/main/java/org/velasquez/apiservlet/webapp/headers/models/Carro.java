@@ -9,7 +9,6 @@ import java.util.Optional;
  * Contiene una lista de ítems de carro, que representan los productos seleccionados por el usuario.
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
  * @date 4/08/2024
  * @time 19:17
  */

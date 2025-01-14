@@ -4,7 +4,6 @@ package org.velasquez.apiservlet.webapp.headers.models;
  * Entidad que maneja los atributos del usuario
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 3
  * @date 8/08/2024
  * @time 18:18
  */
