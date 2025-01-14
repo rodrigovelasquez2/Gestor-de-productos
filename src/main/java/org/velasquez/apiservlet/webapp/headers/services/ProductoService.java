@@ -7,53 +7,54 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Interfaz que define los servicios relacionados con la gestión de productos.
+ * Interfaz para gestionar los productos y categorías.
+ *
+ * @author Velasquez Quiroz Rodrigo Andres
+ * @date 14/01/2025
  */
 public interface ProductoService {
 
     /**
-     * Recupera una lista de todos los productos del sistema.
+     * Obtiene la lista de productos.
      *
-     * @return una lista de objetos de tipo {@link Producto}.
+     * @return una lista de productos
      */
     List<Producto> listar();
 
     /**
-     * Busca un producto específico por su identificador único.
+     * Obtiene un producto por su ID.
      *
-     * @param id el identificador único del producto a buscar.
-     * @return un {@link Optional} que contiene el producto encontrado
-     *         o {@link Optional#empty()} si no se encuentra.
+     * @param id Identificador del producto
+     * @return Producto si existe, vacío si no
      */
     Optional<Producto> porId(Long id);
 
     /**
-     * Guarda un nuevo producto en el sistema.
+     * Guarda un producto en la base de datos.
      *
-     * @param producto el objeto {@link Producto} a guardar.
+     * @param producto Producto a guardar
      */
     void guardar(Producto producto);
 
     /**
-     * Elimina un producto del sistema basado en su identificador único.
+     * Elimina un producto por su ID.
      *
-     * @param id el identificador único del producto a eliminar.
+     * @param id Identificador del producto
      */
     void eliminar(Long id);
 
     /**
-     * Recupera una lista de todas las categorías de productos del sistema.
+     * Obtiene la lista de categorías de productos.
      *
-     * @return una lista de objetos de tipo {@link Categoria}.
+     * @return Lista de categorías
      */
     List<Categoria> listarCategoria();
 
     /**
-     * Busca una categoría específica por su identificador único.
+     * Obtiene una categoría por su ID.
      *
-     * @param id el identificador único de la categoría a buscar.
-     * @return un {@link Optional} que contiene la categoría encontrada
-     *         o {@link Optional#empty()} si no se encuentra.
+     * @param id Identificador de la categoría
+     * @return Categoría si existe, vacío si no
      */
     Optional<Categoria> porIdCategoria(Long id);
 }

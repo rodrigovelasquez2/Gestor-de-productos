@@ -6,16 +6,20 @@ import org.velasquez.apiservlet.webapp.headers.models.Producto;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
 /**
- * Clase que implementa los métodos de Producto Service.
- *
+ * Clase que simulaba el crud de productos a nivel de consola
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
- * @date 4/08/2024
- * @time 21:28
+ * @version
+ * @date 14/01/2025
+ * @time 16:06
  */
 
-public class ProductoServiceImpl implements ProductoService{
+
+@Deprecated
+public class ProductoServiceImpl implements ProductoService {
+
+    @Deprecated
     @Override
     public List<Producto> listar() {
         return Arrays.asList(new Producto(1L, "notebook", "computacion", 175000),
@@ -23,26 +27,30 @@ public class ProductoServiceImpl implements ProductoService{
                 new Producto(3L, "teclado mecanico", "computacion", 40000));
     }
 
+    @Deprecated
     @Override
     public Optional<Producto> porId(Long id) {
         return listar().stream().filter(p -> p.getId().equals(id)).findAny();
     }
 
+    @Deprecated
     @Override
     public void guardar(Producto producto) {
 
     }
 
+    @Deprecated
     @Override
     public void eliminar(Long id) {
-
     }
 
+    @Deprecated
     @Override
     public List<Categoria> listarCategoria() {
         return null;
     }
 
+    @Deprecated
     @Override
     public Optional<Categoria> porIdCategoria(Long id) {
         return Optional.empty();

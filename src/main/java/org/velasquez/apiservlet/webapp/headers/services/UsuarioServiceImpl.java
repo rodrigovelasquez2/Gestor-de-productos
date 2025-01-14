@@ -10,13 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Servicio que implementa el repositorio del usuario
+ * Servicio que implementa el repositorio del usuario para gestionar el Usuario
+ * Si ocurre un error lanza una  {@link ServiceJdbcException}.
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version3 3
- * @date 9/08/2024
- * @time 11:05
+ * @date 14/01/2025
+ * @time 16:30
  */
+
 
 public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository usuarioRepository;
@@ -25,19 +26,25 @@ public class UsuarioServiceImpl implements UsuarioService {
         this.usuarioRepository = new UsuarioRepositoryImpl(connection);
     }//Fin UsuarioServiceImpl
 
+    /**
+     * Intenta autenticar a un {@link Usuario} utilizando el nombre de usuario y la contraseña proporcionados.
+     * @param username Nombre del usuario
+     * @param password Clave del usuario
+     * @return Un {@link Optional} que contiene el {@link Usuario} autenticado, o {@link Optional#empty()} si las
+     * credenciales no son válidas.
+     */
     @Override
     public Optional<Usuario> login(String username, String password) {
         try {
-            return Optional.ofNullable(usuarioRepository.porUsername(username))
-                    .filter(u -> u.getPassword().equals(password)); // Si es igual el password del usuario al password que se pasa por parametro
+            return Optional.ofNullable(usuarioRepository.porUsername(username)).filter(u -> u.getPassword().equals(password));
         } catch (SQLException throwables) {
             throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
-
         }
     }//Fin login
 
     /**
-     * @return la lista de productos.
+     * Devuelve una lista {@link Usuario}
+     * @return la lista de todos los usuarios encontrados
      */
     @Override
     public List<Usuario> listar() {
@@ -49,9 +56,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     /**
-     * Guardar un nuevo usuario
-     *
-     * @param usuario
+     * Guarda el objeto {@link Usuario} en la base de datos
+     * @param usuario el nombre del usuario
      */
     @Override
     public void guardar(Usuario usuario) {
@@ -62,6 +68,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
     }
 
+    /**
+     * Devuelve el {@link Usuario} encontrado a travez de su id
+     * @param id Identificador unico del usuario
+     * @return el {@link Usuario} encontrado
+     */
     @Override
     public Optional<Usuario> porId(Long id) {
         try {
@@ -71,6 +82,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
     }
 
+    /**
+     * Elimina el {@link Usuario } de la base de datos mediante su id
+     * @param id Identificador unico
+     */
     @Override
     public void eliminar(Long id) {
         try {

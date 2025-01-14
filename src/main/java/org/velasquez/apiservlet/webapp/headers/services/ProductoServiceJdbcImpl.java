@@ -12,29 +12,30 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Clase que implementa los repositorios
+ * Clase que define los métodos de ProductService para Gestionar los productos y categorias de la base de datos
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
- * @date 4/08/2024
- * @time 21:14
+ * @date 14/01/2025
+ * @time 16:07
  */
 
+
 public class ProductoServiceJdbcImpl implements ProductoService {
-    //Declarando la variable de instancia Repositorio Producto
     private Repository<Producto> repositoryJdbc;
 
-    //Declarando la variable de instancia del repositorio Categoria
     private Repository<Categoria> repositoryCategoriaJdbc;
 
-    //Inicializa los repositorios con cada una de sus implementaciones que previamente se le paso la conexion.
+    //Se inicializa los repositorios
     public ProductoServiceJdbcImpl(Connection connection) {
         this.repositoryJdbc = new ProductoRepositoryJdbcImpl(connection);
         this.repositoryCategoriaJdbc = new CategoriaRepositoryImpl(connection);
     }
 
+
     /**
-     * @return la lista de todos los productos.
+     * Devuelve una lista de objetos {@link Producto}.
+     *
+     * @return Una lista de productos.
      */
     @Override
     public List<Producto> listar() {
@@ -46,8 +47,10 @@ public class ProductoServiceJdbcImpl implements ProductoService {
     }
 
     /**
-     * @param id el identificador único del producto a buscar.
-     * @return el producto encontrado a travez del id
+     * Devuelve un optional si se encuentra el producto {@link Producto}
+     *
+     * @param id Identificador del producto
+     * @return Un {@link Optional} que contiene el producto encontrado, o {@link Optional#empty()} si no se encuentra.
      */
     @Override
     public Optional<Producto> porId(Long id) {
@@ -60,7 +63,10 @@ public class ProductoServiceJdbcImpl implements ProductoService {
     }
 
     /**
-     * @param producto el objeto {@link Producto} a guardar.
+     * Guarda el objeto {@link Producto} en la base de datos.
+     * Si ocurre un error durante el proceso de guardado, se lanza una {@link ServiceJdbcException}.
+     *
+     * @param producto El objeto {@link Producto} que se desea guardar en la base de datos.
      */
     @Override
     public void guardar(Producto producto) {
@@ -72,6 +78,8 @@ public class ProductoServiceJdbcImpl implements ProductoService {
     }
 
     /**
+     * Elimina el objeto {@link Producto} de la base de datos mediante su id
+     * Si ocurre un error durante el proceso de guardado, se lanza una {@link ServiceJdbcException}.
      * @param id el identificador único del producto a eliminar.
      */
     @Override
@@ -84,6 +92,8 @@ public class ProductoServiceJdbcImpl implements ProductoService {
     }
 
     /**
+     * Devuelve una lista de categorias {@link Categoria}
+     * Si ocurre un error lanza una  {@link ServiceJdbcException}.
      * @return la lista de todas las categorias
      */
     @Override
@@ -95,6 +105,12 @@ public class ProductoServiceJdbcImpl implements ProductoService {
         }
     }
 
+    /**
+     * Devuelve un optional si encuentra la categoria mediante su id
+     * Si ocurre un error lanza una  {@link ServiceJdbcException}.
+     * @param id Identificador de la categoría
+     * @return
+     */
     @Override
     public Optional<Categoria> porIdCategoria(Long id) {
         try {
