@@ -1,11 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%--Para obtener la sesion se hace con session scope--%>
-<%--<%--%>
-<%--    Carro carro = (Carro) session.getAttribute("carro");--%>
-<%--%>--%>
-
 <jsp:include page="layout/header.jsp"/>
 <h3>${title}</h3>
     <c:choose>
@@ -13,7 +8,6 @@
             <div class="alert alert-warning">Lo sentimos no hay productos en el carro de compras!</div>
         </c:when>
         <c:otherwise>
-            <%-- <form name="formcarro" action="<%=request.getContextPath()%>/carro/actualizar" method="post">--%>
             <form name="formcarro" action="${pageContext.request.contextPath}/carro/actualizar" method="post">
                 <table class="table table-hover table-striped">
                     <tr>
@@ -25,12 +19,8 @@
                         <th>borrar</th>
                     </tr>
 
-                        <%--                <%for (ItemCarro item : carro.getItems()) {%>--%>
                     <c:forEach items="${sessionScope.carro.items}" var="item">
                         <tr>
-                                <%--               <td><%=item.getProducto().getId()%></td>--%>
-                                <%--               <td><%=item.getProducto().getNombre()%></td>--%>
-                                <%--               <td><%=item.getProducto().getPrecio()%></td>--%>
 
                             <td>${item.producto.id}</td>
                             <td>${item.producto.nombre}</td>
@@ -44,7 +34,6 @@
                     </c:forEach>
                     <tr>
                         <td colspan="5" style="text-align: right">Total:</td>
-                            <%--  Para capturar el  getTotal, se hace con sessionScope.   <td><%=carro.getTotal()%>--%>
                         <td>${sessionScope.carro.total}</td>
                     </tr>
                 </table>

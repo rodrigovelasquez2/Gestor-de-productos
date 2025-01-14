@@ -25,7 +25,6 @@ public class LoginFiltro implements Filter {
         if (username.isPresent()) {
             chain.doFilter(request, response);
         } else {
-//            ((HttpServletResponse)response).sendError(HttpServletResponse.SC_UNAUTHORIZED,"Lo sentimos no estas autorizado para ingresar a esta pagina!");
             HttpServletRequest httpRequest = (HttpServletRequest) request;
             HttpServletResponse httpResponse = (HttpServletResponse) response;
 

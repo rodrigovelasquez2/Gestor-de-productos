@@ -23,7 +23,6 @@ import java.util.Optional;
  * @time 23:12
  */
 
-
 @WebServlet({"/productos.html", "/productos"})
 public class ProductoServlet extends HttpServlet {
     @Override

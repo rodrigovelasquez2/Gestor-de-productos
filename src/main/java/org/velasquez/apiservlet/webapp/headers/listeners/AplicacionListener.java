@@ -16,8 +16,7 @@ import org.velasquez.apiservlet.webapp.headers.models.Carro;
  */
 
 @WebListener
-public class AplicacionListener implements ServletContextListener,
-        ServletRequestListener, HttpSessionListener {
+public class AplicacionListener implements ServletContextListener, ServletRequestListener, HttpSessionListener {
 
     private ServletContext servletContext;
 
@@ -25,7 +24,7 @@ public class AplicacionListener implements ServletContextListener,
     public void contextInitialized(ServletContextEvent sce) {
         sce.getServletContext().log("inicializando la aplicacion!");
         servletContext = sce.getServletContext();
-        servletContext.setAttribute("mensaje", "algun valor global de la app!");
+      //  servletContext.setAttribute("mensaje", "algun valor global de la app!");
     }
 
     @Override
@@ -36,7 +35,7 @@ public class AplicacionListener implements ServletContextListener,
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         servletContext.log("inicializando el request!");
-        sre.getServletRequest().setAttribute("mensaje", "guardando algun valor para el request");
+       // sre.getServletRequest().setAttribute("mensaje", "guardando algun valor para el request");
         sre.getServletRequest().setAttribute("title", "Catalogo Servlet");
     }
 
