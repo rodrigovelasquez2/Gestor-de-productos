@@ -15,8 +15,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Servlet encargado de crear un nuevo {@link Usuario}
+ * Este servlet maneja la solicitud HTTP GET para obtener los datos del usuario existente.
+ * La solicitud HTTP POST para crear un nuevo usuario
+ *
+ * @author Velasquez Quiroz Rodrigo Andres
+ */
+
+
 @WebServlet("/usuarios/form")
 public class UsuarioFormServlet extends HttpServlet {
+    /**
+     * Maneja la solicitud GET para obtener todos los datos del usaurio
+     * @param req La solicitud HTTP que contiene el parámetro {@code id}.
+     * @param resp La respuesta HTTP para redirigir o devolver un error.
+     * @throws ServletException Si ocurre un error en el procesamiento del servlet.
+     * @throws IOException Si ocurre un error al enviar la respuesta.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection conn = (Connection) req.getAttribute("conn");
@@ -43,9 +59,15 @@ public class UsuarioFormServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/usuarios/formUsuario.jsp").forward(req, resp);
     }//Fin doGet
 
+    /**
+     * Maneja la solicitud POST para crear un nuevo usuario
+     * @param req La solicitud HTTP que contiene el parámetro {@code id}.
+     * @param resp La respuesta HTTP para redirigir o devolver un error.
+     * @throws ServletException Si ocurre un error en el procesamiento del servlet.
+     * @throws IOException Si ocurre un error al enviar la respuesta.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Obtengo de Conexion filter la conexion
         Connection conn = (Connection) req.getAttribute("conn");
 //        Implemento el servicio del Usuario Service
         UsuarioService service = new UsuarioServiceImpl(conn);

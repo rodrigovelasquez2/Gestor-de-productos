@@ -17,23 +17,26 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Encargado de listar todos los usuarios.
+ * Servlet encargado delistar todos los usuarios.
  * @author Velasquez Quiroz Rodrigo Andres
- * @version
- * @date 8/08/2024
- * @time 23:11
  */
 @WebServlet("/usuarios")
 public class UsuarioServlet extends HttpServlet {
+    /**
+     * Maneja la solicitud GET para obtener todos los usuarios
+     * Obtiene la conexion de la base de datos desde filter
+     * @param req La solicitud HTTP que contiene el parámetro {@code id}.
+     * @param resp La respuesta HTTP para redirigir o devolver un error.
+     * @throws ServletException Si ocurre un error en el procesamiento del servlet.
+     * @throws IOException Si ocurre un error al enviar la respuesta.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Obtienbe la conexion del f ilter Conexxion Filter
+
         Connection conn = (Connection) req.getAttribute("conn");
 
-        //Instancia del servicio del Usuario service.
         UsuarioService service = new UsuarioServiceImpl(conn);
 
-        //Asigna en una lista de usuarios, la lista de prodcutos que retorna el service
         List<Usuario> usuarios = service.listar();
 
         //Obtiene la sesion del usuario
