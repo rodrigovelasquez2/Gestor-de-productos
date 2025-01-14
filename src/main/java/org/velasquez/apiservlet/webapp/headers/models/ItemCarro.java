@@ -5,7 +5,6 @@ import java.util.Objects;
 /**
  * Clase que representa un ítem en el carro de compras.
  * Contiene un producto y la cantidad de dicho producto en el carro.
- *
  * @author Velasquez Quiroz Rodrigo Andres
  * @version 2
  * @date 4/08/2024
@@ -18,7 +17,6 @@ public class ItemCarro {
 
     /**
      * Constructor de la clase ItemCarro.
-     *
      * @param cantidad la cantidad del producto en el carro.
      * @param producto el producto asociado a este ítem.
      */
@@ -28,9 +26,7 @@ public class ItemCarro {
     }
 
     /**
-     * Obtiene la cantidad del producto en el carro.
-     *
-     * @return la cantidad del producto.
+     * @return la cantidad del producto en el carro.
      */
     public int getCantidad() {
         return cantidad;
@@ -38,8 +34,8 @@ public class ItemCarro {
 
     /**
      * Establece la cantidad del producto en el carro.
-     *
      * @param cantidad la cantidad a establecer.
+     *
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
@@ -47,7 +43,6 @@ public class ItemCarro {
 
     /**
      * Obtiene el producto asociado a este ítem.
-     *
      * @return el producto asociado.
      */
     public Producto getProducto() {

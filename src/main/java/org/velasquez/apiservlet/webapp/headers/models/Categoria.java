@@ -1,9 +1,10 @@
 package org.velasquez.apiservlet.webapp.headers.models;
+
 /**
  * Clase que representa la tabla categorias en la base de datos
  * Aplica encapsulamiento a travez del uso de get and set
+ *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version
  * @date 1/08/2024
  * @time 22:31
  */

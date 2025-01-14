@@ -26,7 +26,6 @@ public class Carro {
 
     /**
      * Agrega un ítem al carro. Si el ítem ya existe, incrementa la cantidad.
-     *
      * @param itemCarro el ítem a agregar al carro.
      */
     public void addItemCarro(ItemCarro itemCarro) {
@@ -41,12 +40,10 @@ public class Carro {
         } else {
             this.items.add(itemCarro);
         }
-    }
+    }//Fin addItemCarro
 
     /**
-     * Obtiene la lista de ítems en el carro.
-     *
-     * @return la lista de ítems.
+     * @return Devuelve una  lista de ítems que tiene el carrito de compras
      */
     public List<ItemCarro> getItems() {
         return items;
@@ -54,16 +51,16 @@ public class Carro {
 
     /**
      * Calcula el importe total del carro sumando los importes de todos los ítems.
-     *
      * @return el importe total del carro.
      */
     public int getTotal() {
-        return items.stream().mapToInt(ItemCarro::getImporte).sum();
+        return items.stream()
+                .mapToInt(ItemCarro::getImporte)
+                .sum();
     }
 
     /**
      * Elimina varios productos del carro basados en una lista de IDs de productos.
-     *
      * @param productoIds la lista de IDs de los productos a eliminar.
      */
     public void removeProductos(List<String> productoIds) {
@@ -76,7 +73,6 @@ public class Carro {
 
     /**
      * Elimina un producto del carro basado en su ID.
-     *
      * @param productoId el ID del producto a eliminar.
      */
     public void removeProducto(String productoId) {
@@ -86,7 +82,6 @@ public class Carro {
 
     /**
      * Actualiza la cantidad de un producto en el carro.
-     *
      * @param productoId el ID del producto cuya cantidad se va a actualizar.
      * @param cantidad   la nueva cantidad del producto.
      */
@@ -106,4 +101,4 @@ public class Carro {
                 .filter(itemCarro -> productoId.equals(Long.toString(itemCarro.getProducto().getId())))
                 .findAny();
     }
-}
+}//Fin Carro
