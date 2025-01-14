@@ -7,7 +7,8 @@ import java.util.List;
  * Interfaz genérica que define operaciones CRUD básicas para un repositorio de objetos de tipo T.
  * <p>Al ser implementada, proporciona la estructura para interactuar con una fuente de datos
  * específica (como una base de datos) y manejar entidades de tipo T.</p>
- *
+ * Si ocurre un error lanza {@link SQLException} para manejar los errores .
+ * @author Velasquez Quiroz Rodrigo Andres
  * @param <T> el tipo de entidad que maneja el repositorio
  */
 public interface Repository<T> {

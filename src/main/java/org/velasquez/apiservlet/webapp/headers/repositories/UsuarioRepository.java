@@ -4,9 +4,8 @@ import org.velasquez.apiservlet.webapp.headers.models.Usuario;
 
 import java.sql.SQLException;
 /**
- * Interface que hereda los métodos de Repository
+ * Interface que hereda los métodos de Repository para ser implementado en {@link UsuarioRepositoryImpl}
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 3
  * @date 8/08/2024
  * @time 18:27
  */

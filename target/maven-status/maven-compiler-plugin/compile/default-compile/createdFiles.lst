@@ -8,7 +8,9 @@ org\velasquez\apiservlet\webapp\headers\controllers\ProductoServlet.class
 org\velasquez\apiservlet\webapp\headers\repositories\CategoriaRepositoryImpl.class
 org\velasquez\apiservlet\webapp\headers\models\Categoria.class
 org\velasquez\apiservlet\webapp\headers\controllers\usuarios\UsuarioEliminarServlet.class
+org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Producto.class
 org\velasquez\apiservlet\webapp\headers\controllers\ProductoFormServlet.class
+org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Categoria.class
 org\velasquez\apiservlet\webapp\headers\controllers\usuarios\UsuarioFormServlet.class
 org\velasquez\apiservlet\webapp\headers\controllers\VerCarroServlet.class
 org\velasquez\apiservlet\webapp\headers\util\ConexionBaseDatos.class
@@ -20,6 +22,7 @@ org\velasquez\apiservlet\webapp\headers\repositories\ProductoRepositoryJdbcImpl.
 org\velasquez\apiservlet\webapp\headers\services\ProductoServiceJdbcImpl.class
 org\velasquez\apiservlet\webapp\headers\services\LoginServiceCookieImpl.class
 org\velasquez\apiservlet\webapp\headers\controllers\LoginServlet.class
+org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Usuario.class
 org\velasquez\apiservlet\webapp\headers\controllers\ProductoEliminarServlet.class
 org\velasquez\apiservlet\webapp\headers\models\Carro.class
 org\velasquez\apiservlet\webapp\headers\controllers\LogoutServlet.class
@@ -29,6 +32,5 @@ org\velasquez\apiservlet\webapp\headers\models\Usuario.class
 org\velasquez\apiservlet\webapp\headers\services\ServiceJdbcException.class
 org\velasquez\apiservlet\webapp\headers\models\ItemCarro.class
 org\velasquez\apiservlet\webapp\headers\services\ProductoService.class
-org\velasquez\apiservlet\webapp\headers\queries\SqlQueries.class
 org\velasquez\apiservlet\webapp\headers\controllers\ActualizarCarroServlet.class
 org\velasquez\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class

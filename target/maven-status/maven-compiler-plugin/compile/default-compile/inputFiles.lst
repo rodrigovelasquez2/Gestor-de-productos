@@ -5,7 +5,7 @@ G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD 
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\repositories\UsuarioRepository.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\filters\ConexionFilter.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\usuarios\UsuarioEliminarServlet.java
-G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\queries\SqlQueries.java
+G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Categoria.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\repositories\CategoriaRepositoryImpl.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\services\LoginServiceSessionImpl.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\services\ProductoServiceJdbcImpl.java
@@ -14,6 +14,7 @@ G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD 
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\LoginServlet.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\VerCarroServlet.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\repositories\ProductoRepositoryJdbcImpl.java
+G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Usuario.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\repositories\UsuarioRepositoryImpl.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\ProductoServlet.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\AgregarCarroServlet.java
@@ -32,4 +33,5 @@ G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD 
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\filters\LoginFiltro.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\services\ProductoServiceImpl.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\controllers\usuarios\UsuarioFormServlet.java
+G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\queries\MySQLQueries_Producto.java
 G:\Mi unidad\CURSOS AUTODIDACTAS EN NUBE\GitHub-Proyectos a mi repositorio\CRUD con autenticacion\src\main\java\org\velasquez\apiservlet\webapp\headers\services\ServiceJdbcException.java

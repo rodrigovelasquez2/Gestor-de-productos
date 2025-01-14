@@ -2,14 +2,16 @@ package org.velasquez.apiservlet.webapp.headers.repositories;
 
 import org.velasquez.apiservlet.webapp.headers.models.Categoria;
 import org.velasquez.apiservlet.webapp.headers.models.Producto;
+import static org.velasquez.apiservlet.webapp.headers.queries.MySQLQueries_Producto.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- * Implementa la función de cada método visto en el repositorio.
+ * Implementa la función de cada método visto {@link Repository<Producto>}
+ * para gestionar los productos con sus categorias
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
  * @date 1/08/2024
  * @time 22:29
  */
@@ -31,8 +33,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
         List<Producto> productos = new ArrayList<>();
 
         try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT p.*, c.nombre as categoria FROM productos as p " +
-                     " inner join categorias as c ON (p.categoria_id = c.id) order by p.id ASC")) {
+             ResultSet rs = stmt.executeQuery(MySQL_SELECT_ALL_PRODUCTO_WITH_CATEGORIA)) {
             while (rs.next()) {
                 Producto p = getProducto(rs);
                 productos.add(p);
@@ -52,10 +53,8 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
     @Override
     public Producto porId(Long id) throws SQLException {
         Producto producto = null;
-        try (PreparedStatement stmt = conn.prepareStatement("SELECT p.*, c.nombre as categoria FROM productos as p " +
-                " inner join categorias as c ON (p.categoria_id = c.id) WHERE p.id = ?")) {
+        try (PreparedStatement stmt = conn.prepareStatement(MySQL_SELECT_BY_ID_PRODUCTO_WITH_CATEGORIA)) {
             stmt.setLong(1, id);
-
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     producto = getProducto(rs);
@@ -73,14 +72,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
 
     @Override
     public void guardar(Producto producto) throws SQLException {
-
-        String sql;
-        if (producto.getId() != null && producto.getId() > 0) { // Si el ID del producto existe.
-            sql = "update productos set nombre=?, precio=?, sku=?, categoria_id=? where id=?"; // Lo actualiza
-        } else {
-            sql = "insert into productos (nombre, precio, sku, categoria_id, fecha_registro) values (?,?,?,?,?)"; // Sino, inserta uno nuevo
-        }
-
+        String sql = (producto.getId() != null && producto.getId() > 0) ? MySQL_UPDATE_PRODUCTO : MySQL_INSERT_PRODUCTO;
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, producto.getNombre());
@@ -106,8 +98,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
      */
     @Override
     public void eliminar(Long id) throws SQLException {
-        String sql = "delete from productos where id=?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement stmt = conn.prepareStatement(MySQL_DELETE_PRODUCTO)) {
             stmt.setLong(1, id);
             stmt.executeUpdate();
         }

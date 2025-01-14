@@ -1,15 +1,15 @@
 package org.velasquez.apiservlet.webapp.headers.repositories;
 
 import org.velasquez.apiservlet.webapp.headers.models.Categoria;
+import static org.velasquez.apiservlet.webapp.headers.queries.MySQLQueries_Categoria.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * Repositorio de la entidad Categoria que implementa los métodos del Repositorio
- *
+ * para gestionar las categorias
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
  * @date 4/08/2024
  * @time 20:17
  */
@@ -17,7 +17,6 @@ import java.util.List;
 public class CategoriaRepositoryImpl implements Repository<Categoria>{
     private Connection conn;
 
-    // Cosntructor donde se pasa la conexion.
     public CategoriaRepositoryImpl(Connection conn) {
         this.conn = conn;
     }
@@ -31,12 +30,11 @@ public class CategoriaRepositoryImpl implements Repository<Categoria>{
     public List<Categoria> listar() throws SQLException {
         List<Categoria> categorias = new ArrayList<>();
         try(Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from categorias")){
+            ResultSet rs = stmt.executeQuery(MySQL_SELECT_ALL_CATEGORIAS)){
             while (rs.next()) {
                 Categoria categoria = getCategoria(rs);
                 categorias.add(categoria);
             }
-
         }
         return categorias;
     }
@@ -50,7 +48,7 @@ public class CategoriaRepositoryImpl implements Repository<Categoria>{
     @Override
     public Categoria porId(Long id) throws SQLException {
         Categoria categoria = null;
-        try (PreparedStatement stmt = conn.prepareStatement("select * from categorias as c where c.id=?")) {
+        try (PreparedStatement stmt = conn.prepareStatement(MySQL_SELECT_BY_ID_CATEGORIAS)) {
             stmt.setLong(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -85,6 +83,5 @@ public class CategoriaRepositoryImpl implements Repository<Categoria>{
     public void eliminar(Long id) throws SQLException {
 
     }
-
 
 }

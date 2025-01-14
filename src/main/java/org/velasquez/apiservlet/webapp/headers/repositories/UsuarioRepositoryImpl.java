@@ -1,31 +1,36 @@
 package org.velasquez.apiservlet.webapp.headers.repositories;
 
 import org.velasquez.apiservlet.webapp.headers.models.Usuario;
-import static org.velasquez.apiservlet.webapp.headers.queries.SqlQueries.*;
+
+import static org.velasquez.apiservlet.webapp.headers.queries.MySQLQueries_Usuario.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Clase que implementa los métodos {@link UsuarioRepository}
  * Define como funcionará los métodos para la entidad Usuario
+ * Si ocurre un error lanza {@link SQLException} para manejar los errores .
  *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 3.1.0
  * @date 8/08/2024
  * @time 18:28
  */
 
 public class UsuarioRepositoryImpl implements UsuarioRepository {
-
-
-
     private Connection conn;
 
     public UsuarioRepositoryImpl(Connection conn) {
         this.conn = conn;
     }
 
+    /**
+     * Se encarga de obtener el {@link Usuario} a travez del atributo "username"
+     * @param username Nombre de usuario
+     * @return el usuario encontrado
+     * @throws SQLException
+     */
     @Override
     public Usuario porUsername(String username) throws SQLException {
         Usuario usuario = null;
