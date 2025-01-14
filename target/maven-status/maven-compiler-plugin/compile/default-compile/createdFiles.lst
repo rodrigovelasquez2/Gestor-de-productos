@@ -29,6 +29,5 @@ org\velasquez\apiservlet\webapp\headers\models\Usuario.class
 org\velasquez\apiservlet\webapp\headers\services\ServiceJdbcException.class
 org\velasquez\apiservlet\webapp\headers\models\ItemCarro.class
 org\velasquez\apiservlet\webapp\headers\services\ProductoService.class
-org\velasquez\apiservlet\webapp\headers\repositories\UsuarioRepository.class
 org\velasquez\apiservlet\webapp\headers\controllers\ActualizarCarroServlet.class
 org\velasquez\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class
