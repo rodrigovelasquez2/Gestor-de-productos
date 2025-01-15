@@ -15,14 +15,25 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.Optional;
 
+/**
+ * Servlet encargado de manejar el login del {@link Usuario}
+ * Maneja la peticion GET para evaluar si el usuario esta registrado
+ * La peticion POST para registrar un nuevo usuario
+ *
+ * @author Velasquez Quiroz Rodrigo Andres
+ * @version
+ * @date 14/01/2025
+ * @time 18:40
+ */
+
 @WebServlet({"/login", "/login.html"})
 public class LoginServlet extends HttpServlet {
     /**
      * Se encarga de obtener la session del usuario, de estar activo, mostrara un mensaje de bienvenida para el usuario.
-     * @param req
-     * @param resp
+     * @param req La solicitud HTTP que contiene los parametros del usuario
+     * @param resp  La respuesta HTTP que redirige al usuario a la página de Login
      * @throws ServletException
-     * @throws IOException
+     * @throws IOException Si ocurre un error al enviar la respuesta o redirigir.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

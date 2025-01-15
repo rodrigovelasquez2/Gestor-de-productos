@@ -13,11 +13,24 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.Optional;
 
+/**
+ * Servlet encargado de eliminar un producto del listado de productos
+ * Maneja la peticion GET para evaluar si existe el producto que selecciono el ususuario
+ * Si no existe, envia un mensaje que no existe el producto
+ * @author Velasquez Quiroz Rodrigo Andres
+ */
+
 @WebServlet("/productos/eliminar")
 public class ProductoEliminarServlet extends HttpServlet {
+    /**
+     * Eliminará el producto de la lista de productos
+     * @param req La solicitud HTTP que contiene los parametros del id
+     * @param resp La respuesta HTTP que redirige al usuario a la pagina de productos.
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Obtiene la conexión
         Connection conn = (Connection) req.getAttribute("conn");
         ProductoService service = new ProductoServiceJdbcImpl(conn);
         long id;

@@ -16,23 +16,24 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 /**
- * Se encarga de listar todos los productos que estan en la base de datos.
+ * Servlet encargado de listar todos los productos que estan en la base de datos.
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 3
- * @date 4/08/2024
- * @time 23:12
  */
 
 @WebServlet({"/productos.html", "/productos"})
 public class ProductoServlet extends HttpServlet {
+    /**
+     * Procesa la solicitud Get para obtener todos los productos
+     * @param req La solicitud HTTP que contiene los parametros del producto
+     * @param resp La respuesta HTTP que redirige a la pagina de listar productos
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Obtienbe la conexion del f ilter Conexxion Filter
-        Connection conn = (Connection) req.getAttribute("conn");
-        //Instancia del servicio del producto service.
+        Connection conn = (Connection) req.getAttribute("conn"); // Se obtiene de Filter
         ProductoService service = new ProductoServiceJdbcImpl(conn);
 
-        //Asigna en  una lista a  productos, la lista de productos que retorna el service
         List<Producto> productos = service.listar();
 
         //Obtiene la sesion del usuario

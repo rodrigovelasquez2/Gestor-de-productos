@@ -20,21 +20,26 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Servlet encargado de obtener los valores o enviar a la  base datos el nuevo producto
+ * Servlet encargado de crear nuevo producto
+ * Este Servlet maneja la solitud GET para obtener el producto que selecciono el usuario
+ * la peticion POST para crear un nuevo producto
  * extraidos del formulario formUsuario.jsp.
+ *
  * @author Velasquez Quiroz Rodrigo Andres
- * @version 2
- * @date 4/08/2024
- * @time 21:39
  */
 
 @WebServlet("/productos/form")
 public class ProductoFormServlet extends HttpServlet {
+    /**
+     * Proces la solicitud GET para obtener el producto si esta presente
+     * @param req  La solicitud HTTP que contiene los parametros del producto
+     * @param resp La respuesta  HTTP que redirige a la pagina productos
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Obtiene la conexion
         Connection conn = (Connection) req.getAttribute("conn");
-        //Implementa el servicijo
         ProductoService service = new ProductoServiceJdbcImpl(conn);
         long id;
         try {
@@ -57,16 +62,16 @@ public class ProductoFormServlet extends HttpServlet {
         // Se define en la variable producto el producto encontrado.
         req.setAttribute("producto", producto);
         //Se pasa el titulo
-        req.setAttribute("title",req.getAttribute("title")+": Formulario de productos");
+        req.setAttribute("title", req.getAttribute("title") + ": Formulario de productos");
         // Se rederige a formulario jsp.
         getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
     }
 
     /**
-     * Método encargado de obtener los datos otorgados por el formulario de crear nuevos prodocutos a travez de getParametters
+     * Procesa el método POST para crear nuevos productos
      *
-     * @param req
-     * @param resp
+     * @param req  La solicitud HTTP que contiene los parametros del producto
+     * @param resp La respuesta  HTTP que redirige a la pagina productos
      * @throws ServletException
      * @throws IOException
      */
@@ -154,7 +159,7 @@ public class ProductoFormServlet extends HttpServlet {
             req.setAttribute("errores", errores);
             req.setAttribute("categorias", service.listarCategoria());
             req.setAttribute("producto", producto);
-            req.setAttribute("title",req.getAttribute("title")+": Formulario de productos");
+            req.setAttribute("title", req.getAttribute("title") + ": Formulario de productos");
             getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
         }
     }

@@ -15,6 +15,13 @@ import org.velasquez.apiservlet.webapp.headers.services.ProductoServiceJdbcImpl;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Optional;
+/**
+ * Servlet encargado de agregar productos al carrito de compras
+ * Si el producto esta presente aumenta su cantidad en +1
+ *
+ * @author Velasquez Quiroz Rodrigo Andres
+ * @date 14/01/2025
+ */
 
 @WebServlet("/carro/agregar")
 public class AgregarCarroServlet extends HttpServlet {

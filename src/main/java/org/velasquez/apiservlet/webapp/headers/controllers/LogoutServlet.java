@@ -3,6 +3,7 @@ package org.velasquez.apiservlet.webapp.headers.controllers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
+import org.velasquez.apiservlet.webapp.headers.models.Usuario;
 import org.velasquez.apiservlet.webapp.headers.services.LoginService;
 import org.velasquez.apiservlet.webapp.headers.services.LoginServiceSessionImpl;
 
@@ -17,8 +18,26 @@ import java.util.Optional;
  * @time 23:07
  */
 
+/**
+ * Servlet encargado de cerrar la sesion del {@link Usuario}
+ * Maneja la peticion GET para validar si esta presente el usuario y cerrar su sesión
+ *
+ * @author Velasquez Quiroz Rodrigo Andres
+ * @version
+ * @date 14/01/2025
+ * @time 18:41
+ */
+
+
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
+    /**
+     * Cierra la sesión del usuario
+     * @param req La solicitud HTTP que contiene los parametros del usuario
+     * @param resp La respuesta HTTP que redirige a la página login
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
