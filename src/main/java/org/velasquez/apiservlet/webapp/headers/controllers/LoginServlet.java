@@ -31,24 +31,11 @@ public class LoginServlet extends HttpServlet {
 
         if (usernameOptional.isPresent()) {
             resp.setContentType("text/html;charset=UTF-8");
-            try (PrintWriter out = resp.getWriter()) {
+            getServletContext().getRequestDispatcher("/menu.jsp").forward(req, resp);
 
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("    <head>");
-                out.println("        <meta charset=\"UTF-8\">");
-                out.println("        <title>Hola " + usernameOptional.get() + "</title>");
-                out.println("    </head>");
-                out.println("    <body>");
-                out.println("        <h1>Hola " + usernameOptional.get() + " has iniciado sesión con éxito!</h1>");
-                out.println("<p><a href='" + req.getContextPath() + "/index.jsp'>volver</a></p>");
-                out.println("<p><a href='" + req.getContextPath() + "/logout'>cerrar sesión</a></p>");
-                out.println("    </body>");
-                out.println("</html>");
-            }
         } else {
             req.setAttribute("title",req.getAttribute("title")+": Login");
-            getServletContext().getRequestDispatcher("/login.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 

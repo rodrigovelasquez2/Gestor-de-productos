@@ -43,7 +43,7 @@
     </c:choose>
 
     <div class="my-2">
-        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/index.jsp">volver</a>
+        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/menu.jsp">volver</a>
         <a class="btn btn-success" href="${pageContext.request.contextPath}/productos">seguir comprando</a>
     </div>
 <jsp:include page="layout/footer.jsp"/>

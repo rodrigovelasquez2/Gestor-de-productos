@@ -1,0 +1,35 @@
+/* Estilos para el fondo */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://e0.pxfuel.com/wallpapers/426/864/desktop-wallpaper-minimalist-mountain-beautiful-eagle-mountain-sunset-minimalist-minimalist-s-and-for-you-left-of-the-hudson-minimalism.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Capa de transparencia */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Negro con 50% de transparencia */
+    z-index: 0;
+    /* Asegura que quede debajo del contenido */
+}
+
+/* Contenido */
+.container {
+    position: relative;
+    /* Asegura que el contenido esté encima del fondo */
+    z-index: 1;
+    /* Trae el contenido al frente */
+    color: white;
+    /* Cambia el color del texto si es necesario */
+}

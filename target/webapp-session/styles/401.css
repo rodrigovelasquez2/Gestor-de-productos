@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    color: #343a40;
+    text-align: center;
+}
+.error-container {
+    max-width: 400px;
+}
+h1 {
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: #dc3545;
+}
+p {
+    margin-bottom: 30px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
