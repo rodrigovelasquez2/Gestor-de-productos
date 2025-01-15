@@ -93,5 +93,4 @@ Copiar código
     private static String url = "jdbc:mysql://localhost:Colocar el puerto/el nombre de tu Base de datos?serverTimezone=America/Santiago";
     private static String username = "Coloca tu username";
     private static String password = "Coloca tu password";
-bash
 
