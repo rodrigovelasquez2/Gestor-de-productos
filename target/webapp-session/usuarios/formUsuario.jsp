@@ -2,51 +2,58 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="/layout/header.jsp"/>
-<h3>${title}</h3>
-<form action="${pageContext.request.contextPath}/usuarios/form" method="post">
-    <div class="row mb-2">
 
-        <label class="col-form-label col-sm-2" for="username">Username</label>
-        <div class="col-sm-4">
-            <input type="text" name="username" id="username" value="${usuario.username}" class="form-control">
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3>${title}</h3>
         </div>
+        <div class="card-body">
+            <form action="${pageContext.request.contextPath}/usuarios/form" method="post">
+                <!-- Username -->
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-3" for="username">Username</label>
+                    <div class="col-md-6">
+                        <input type="text" name="username" id="username" value="${usuario.username}" class="form-control">
+                        <c:if test="${errores != null && errores.containsKey('username')}">
+                            <small class="text-danger">${errores.username}</small>
+                        </c:if>
+                    </div>
+                </div>
 
-        <%--        Encontrar errores --%>
-        <c:if test="${errores != null && errores.containsKey('username')}">
-<%--            Muestro el error --%>
-            <div style="color:red;">${errores.username}</div>
-        </c:if>
-    </div>
+                <!-- Password -->
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-3" for="password">Password</label>
+                    <div class="col-md-6">
+                        <input type="password" name="password" id="password" class="form-control">
+                        <c:if test="${errores != null && not empty errores.password}">
+                            <small class="text-danger">${errores.password}</small>
+                        </c:if>
+                    </div>
+                </div>
 
-    <div class="row mb-2">
-        <label class="col-form-label col-sm-2" for="password">Password</label>
-        <div class="col-sm-4">
-            <input type="password" name="password" id="password" class="form-control">
+                <!-- Gmail -->
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-3" for="gmail">Gmail</label>
+                    <div class="col-md-6">
+                        <input type="text" name="gmail" id="gmail" value="${usuario.gmail}" class="form-control">
+                        <c:if test="${errores != null && not empty errores.gmail}">
+                            <small class="text-danger">${errores.gmail}</small>
+                        </c:if>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <input class="btn btn-primary" type="submit"
+                           value="${usuario.id != null && usuario.id > 0 ? 'Editar' : 'Crear'}">
+                </div>
+
+                <!-- Hidden Field -->
+                <input type="hidden" name="id" value="${usuario.id != null && usuario.id > 0 ? usuario.id : 0}">
+            </form>
         </div>
-
-        <%--        Encontrar errores --%>
-        <c:if test="${errores != null && not empty errores.password}">
-            <div style="color:red;">${errores.password}</div>
-        </c:if>
     </div>
+</div>
 
-    <div class="row mb-2">
-        <label class="col-form-label col-sm-2" for="gmail">gmail</label>
-        <div class="col-sm-4">
-            <input type="text" name="gmail" id="gmail" value="${usuario.gmail}" class="form-control">
-        </div>
-
-        <%--        Encontrar errores --%>
-        <c:if test="${errores != null && not empty errores.gmail}">
-            <div style="color:red;">${errores.gmail}</div>
-        </c:if>
-    </div>
-
-    <div class="row mb-2">
-<%--        Si el usuario existe, mostrara editar, si el usaurio es nuevo, mostrara crear--%>
-        <input class="btn btn-primary" type="submit" value="${usuario.id != null && usuario.id > 0 ? 'Editar' : 'Crear'}">
-    </div>
-    <input type="hidden" name="id" value="${usuario.id!=null && usuario.id>0? usuario.id: 0}">
-</form>
 <jsp:include page="/layout/footer.jsp"/>
-
