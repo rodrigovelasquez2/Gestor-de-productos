@@ -10,6 +10,21 @@ Una aplicación web desarrollada en Java que permite gestionar productos y usuar
 - **Interfaz Adaptable:** Diseñado en Bootstrap 5.
 - **Capa de Persistencia:** Gestión eficiente de datos utilizando repositorios para conexión con la base de datos.
 
+## Vista previa
+**Login**
+[![login.png](https://i.postimg.cc/BQHCjg41/login.png)](https://postimg.cc/nCVm5qsH)
+
+**Catalogo**
+[![catalogo-PNG.png](https://i.postimg.cc/zv1V6TM9/catalogo-PNG.png)](https://postimg.cc/vg3Y6xGz)
+
+**Lista de productos**
+[![lista-productos.png](https://i.postimg.cc/tRh1Pmny/lista-productos.png)](https://postimg.cc/nMhcf21w)
+
+**Carrito de compras**
+[![carrito-compras.png](https://i.postimg.cc/x1dqwfxT/carrito-compras.png)](https://postimg.cc/HVfp5g1f)
+
+
+
 ## Estructura del Proyecto
 - El proyecto sigue una arquitectura basada en MVC (Model-View-Controller), organizada en los siguientes paquetes:
 
