@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
@@ -9,36 +10,47 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <!-- Logotipo destacado -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="fas fa-shopping-cart me-2"></i> MyShop
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Ítems del menú -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/menu.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/menu.jsp">
+                        <i class="fas fa-home"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/usuarios">Usuarios</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/usuarios">
+                        <i class="fas fa-users"></i> Usuarios
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/productos">Productos</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/productos">
+                        <i class="fas fa-box"></i> Productos
+                    </a>
                 </li>
                 <li class="nav-item">
-<%--                    Muestra la cantidad de productos que tiene registrado el usuario. --%>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/carro/ver">Ver carro (${carro.items.size()})</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/carro/ver">
+                        <i class="fas fa-shopping-cart"></i> Ver carro (${carro.items.size()})
+                    </a>
                 </li>
+                <!-- Dropdown de cuenta -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        ${not empty sessionScope.username? sessionScope.username: "Cuenta"}
+                        <i class="fas fa-user"></i> ${not empty sessionScope.username ? sessionScope.username : "Cuenta"}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item"
-                               href="${pageContext.request.contextPath}/${not empty sessionScope.username? "logout": "login"}">
-                                ${not empty sessionScope.username? "Logout": "Login"}
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/${not empty sessionScope.username ? "logout" : "login"}">
+                                ${not empty sessionScope.username ? "Logout" : "Login"}
                             </a>
                         </li>
                     </ul>
@@ -47,4 +59,4 @@
         </div>
     </div>
 </nav>
-<div class="container">
+
