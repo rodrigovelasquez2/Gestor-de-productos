@@ -100,7 +100,7 @@ Una aplicación web desarrollada en Java que permite gestionar productos y usuar
 Clona este repositorio:
 bash
 Copiar código
-git clone https://github.com/tu-usuario/gestor-productos-usuarios.git
+git clone https://github.com/rodrigovelasquez2/Gestor-de-productos.git
 
 Configura la base de datos en la clase de conexion **ConexionBaseDatos**
 Copiar código
